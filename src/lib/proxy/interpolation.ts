@@ -20,7 +20,6 @@ export const interpolate = (template: any, templatePath: string = '', variables:
   }
 
   if (typeof template === 'string') {
-    console.log('tg3', { template, templatePath, variables: JSON.stringify(variables) })
     return interpolateString(template, templatePath, variables)
   }
 
@@ -36,9 +35,8 @@ export const interpolate = (template: any, templatePath: string = '', variables:
  */
 
 const interpolateString = (template: string, templatePath: string, variables: any) => {
-  // console.log("interpolateString", template, templatePath, variables);
+  console.log({ "tg9", template, templatePath, variables: JSON.stringify(variables) })
   return template.replace(parserRegex, (match: string, variableName: string) => {
-    
     if (match[0] === '\\') {
       return match[1]
     }
@@ -50,8 +48,8 @@ const interpolateString = (template: string, templatePath: string, variables: an
     }
 
     return value
-  }
   })
+}
 
 /**
  * Interpolate arrays
@@ -82,6 +80,6 @@ const interpolateObject = (template: any, templatePath: string, variables: any) 
 
 export class UndefinedVariable extends Error {
   constructor(public templatePath: string, public variableName: string) {
-    super(`(tg5)Undefined variable ${variableName} used in template at ${templatePath}`)
+    super(`Undefined variable ${variableName} used in template at ${templatePath}`)
   }
 }
