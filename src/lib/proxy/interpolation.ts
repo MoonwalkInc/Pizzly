@@ -78,6 +78,6 @@ const interpolateObject = (template: any, templatePath: string, variables: any) 
 
 export class UndefinedVariable extends Error {
   constructor(public templatePath: string, public variableName: string) {
-    super(`Undefined variable ${variableName} used in template at ${templatePath}`)
+    super(`(b)Undefined variable ${variableName} used in template at ${templatePath}`)
   }
 }
