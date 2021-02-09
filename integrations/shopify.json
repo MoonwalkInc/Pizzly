@@ -6,7 +6,7 @@
     "tokenURL": "https://${connectParams.shop}.myshopify.com/admin/oauth/access_token"
   },
   "request": {
-    "baseURL": "https://${connectParams.shop}.myshopify.com/admin/api/",
+    "baseURL": "https://${auth.connectParams.shop}.myshopify.com/admin/api/",
     "headers": {
       "Accept": "application/json",
       "Authorization": "Bearer ${auth.accessToken}",
