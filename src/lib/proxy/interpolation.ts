@@ -20,6 +20,7 @@ export const interpolate = (template: any, templatePath: string = '', variables:
   }
 
   if (typeof template === 'string') {
+    console.log('tg3', { template, templatePath, variables })
     return interpolateString(template, templatePath, variables)
   }
 
