@@ -9,7 +9,7 @@
     "baseURL": "https://${auth.connectParams.shop}.myshopify.com/admin/api/",
     "headers": {
       "Accept": "application/json",
-      "Authorization": "Bearer ${auth.accessToken}",
+      "X-Shopify-Access-Token": "${auth.accessToken}",
       "User-Agent": "Pizzly"
     },
     "params": {}
