@@ -7,12 +7,16 @@
 
 import express from 'express'
 import cors from 'cors'
+import bodyParser from 'body-parser'
 import * as access from '../lib/access'
 import { incomingRequestHandler } from '../lib/proxy'
 import { asyncMiddleware } from '../lib/utils/asyncMiddleware'
 import { UndefinedVariable } from '../lib/proxy/interpolation'
 
 const proxy = express.Router()
+
+proxy.use(bodyParser.urlencoded({ extended: false }))
+proxy.use(bodyParser.json({ limit: '5mb' }))
 
 /**
  * Proxy authentication middleware
