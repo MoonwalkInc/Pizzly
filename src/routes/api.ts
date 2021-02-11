@@ -1,5 +1,5 @@
 import * as express from 'express'
-import bodyParser from 'body-parser'
+// import bodyParser from 'body-parser'
 import { v4 as uuidv4 } from 'uuid'
 import { store } from '../lib/database'
 import * as access from '../lib/access'
