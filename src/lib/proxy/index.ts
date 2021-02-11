@@ -30,7 +30,7 @@ export const incomingRequestHandler = async (req, res, next) => {
     return next(new PizzlyError('missing_auth_id'))
   }
   console.log('1')
-  console.log('req', JSON.stringify(req))
+  console.log('req', req)
   console.log('req.body', req.body)
   // Retrieve integration & authentication details
   const integration = await integrations.get(integrationName)

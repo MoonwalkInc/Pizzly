@@ -10,8 +10,9 @@ import { Types } from '../types'
 
 const api = express.Router()
 
-api.use(bodyParser.urlencoded({ extended: false }))
-api.use(bodyParser.json({ limit: '5mb' }))
+// api.use(bodyParser.urlencoded({ extended: false }))
+// api.use(bodyParser.json({ limit: '5mb' }))
+api.use(require('connect').bodyParser())
 
 /**
  * API authentication middleware.
