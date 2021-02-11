@@ -35,7 +35,7 @@ export const interpolate = (template: any, templatePath: string = '', variables:
  */
 
 const interpolateString = (template: string, templatePath: string, variables: any) => {
-  console.log('tg4', { template, templatePath, variables: JSON.stringify(variables) })
+  // console.log('tg4', { template, templatePath, variables: JSON.stringify(variables) })
   return template.replace(parserRegex, (match: string, variableName: string) => {
     if (match[0] === '\\') {
       return match[1]
