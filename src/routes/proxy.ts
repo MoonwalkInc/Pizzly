@@ -15,8 +15,8 @@ import { UndefinedVariable } from '../lib/proxy/interpolation'
 
 const proxy = express.Router()
 
-proxy.use(bodyParser.urlencoded({ extended: false }))
-proxy.use(bodyParser.json({ limit: '5mb' }))
+// proxy.use(bodyParser.urlencoded({ extended: false }))
+// proxy.use(bodyParser.json({ limit: '5mb' }))
 
 /**
  * Proxy authentication middleware
