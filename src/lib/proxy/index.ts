@@ -81,7 +81,7 @@ export const incomingRequestHandler = async (req, res, next) => {
     console.log('url.searchParams', url.searchParams)
 
     // Perform external request
-    console.log('externalRequest', url, { headers, method: req.method })
+    console.log('externalRequest', url, { headers, method: req.method }, { body: req.body })
     const externalRequest = https.request(url, { headers, method: req.method }, externalResponse => {
       externalResponseHandler(externalResponse, req, res, next)
     })
