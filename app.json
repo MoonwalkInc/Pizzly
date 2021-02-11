@@ -4,7 +4,6 @@
   "image": "heroku/node",
   "repository": "https://github.com/Bearer/Pizzly",
   "keywords": ["OAuth", "node"],
-  "addons": ["heroku-postgresql:hobby-dev"],
   "scripts": {
     "postdeploy": "npm run db:create --env=production && npm run db:migrate --env=production"
   },

@@ -172,3 +172,4 @@ While there are no templates yet when opening a PR or an issue, we still recomme
 ### License
 
 Pizzly is MIT licensed. See the [LICENSE file](https://github.com/Bearer/Pizzly/blob/master/LICENSE.md) for more information.
+

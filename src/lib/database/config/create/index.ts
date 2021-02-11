@@ -9,6 +9,7 @@ import { Client } from 'pg'
     return // skip database creation if not on development
   }
 
+  console.log(' process.env.DATABASE_URL', process.env.DATABASE_URL)
   if (process.env.HEROKU_POSTGRESQL_ONYX_URL || process.env.DATABASE_URL) {
     return // skip database creation on heroku or special database configuration
   }

@@ -73,6 +73,6 @@ export const expandTemplate = (template: any, variables: any) => expand(template
 
 export class UndefinedVariable extends CustomError {
   constructor(public templatePath: string, public variableName: string) {
-    super(`(a)Undefined variable ${variableName} used in template at ${templatePath}`)
+    super(`Undefined variable ${variableName} used in template at ${templatePath}`)
   }
 }
