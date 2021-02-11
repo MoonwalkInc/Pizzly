@@ -21,6 +21,7 @@ import { getOAuth1Credentials } from '../../legacy/api-config/request-config'
  */
 
 export const incomingRequestHandler = async (req, res, next) => {
+  console.log('incomingRequestHandler')
   // General inputs validation
   const authId = req.get('Pizzly-Auth-Id') || ''
   const integrationName = req.params.integration
@@ -28,7 +29,7 @@ export const incomingRequestHandler = async (req, res, next) => {
   if (!authId) {
     return next(new PizzlyError('missing_auth_id'))
   }
-
+  console.log('1')
   // Retrieve integration & authentication details
   const integration = await integrations.get(integrationName)
   if (!integration) {
@@ -40,13 +41,16 @@ export const incomingRequestHandler = async (req, res, next) => {
   if (!authentication) {
     return next(new PizzlyError('unknown_authentication'))
   }
+  console.log('2')
 
   try {
     // Handle the token freshness (if it has expired)
+    console.log('3')
     if (await accessTokenHasExpired(authentication)) {
       authentication = await refreshAuthentication(integration, authentication)
     }
 
+    console.log('4')
     if (!authentication) {
       return next(new PizzlyError('token_refresh_failed')) // TODO: improve error verbosity
     }
@@ -55,6 +59,7 @@ export const incomingRequestHandler = async (req, res, next) => {
     // i.e. replace ${auth.accessToken} from the integration template
     // with the authentication access token retrieved from the database.
     const forwardedHeaders = headersToForward(req.rawHeaders)
+    console.log('raw headers', req.rawHeaders)
     const { url, headers } = await buildRequest({
       authentication,
       integration,
@@ -69,6 +74,8 @@ export const incomingRequestHandler = async (req, res, next) => {
         url.searchParams.delete(key)
       }
     })
+
+    console.log('url.searchParams', url.searchParams)
 
     // Perform external request
     console.log('externalRequest', url, { headers, method: req.method })
