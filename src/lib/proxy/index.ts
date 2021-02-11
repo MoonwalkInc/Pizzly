@@ -31,6 +31,7 @@ export const incomingRequestHandler = async (req, res, next) => {
   }
   console.log('1')
   console.log('req', req)
+  console.log('req.headers', req.body)
   console.log('req.body', req.body)
   // Retrieve integration & authentication details
   const integration = await integrations.get(integrationName)

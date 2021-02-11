@@ -1,5 +1,5 @@
 import * as express from 'express'
-// import bodyParser from 'body-parser'
+import bodyParser from 'body-parser'
 import { v4 as uuidv4 } from 'uuid'
 import { store } from '../lib/database'
 import * as access from '../lib/access'
@@ -10,9 +10,8 @@ import { Types } from '../types'
 
 const api = express.Router()
 
-// api.use(bodyParser.urlencoded({ extended: false }))
-// api.use(bodyParser.json({ limit: '5mb' }))
-api.use(require('connect').bodyParser())
+api.use(bodyParser.urlencoded({ extended: false }))
+api.use(bodyParser.json({ limit: '5mb' }))
 
 /**
  * API authentication middleware.
