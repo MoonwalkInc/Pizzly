@@ -7,7 +7,7 @@
 
 import express from 'express'
 import cors from 'cors'
-import bodyParser from 'body-parser'
+// import bodyParser from 'body-parser'
 import * as access from '../lib/access'
 import { incomingRequestHandler } from '../lib/proxy'
 import { asyncMiddleware } from '../lib/utils/asyncMiddleware'
