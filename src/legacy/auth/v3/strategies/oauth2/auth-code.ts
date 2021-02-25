@@ -60,5 +60,7 @@ export const authenticate = asyncMiddleware(async (req: TAuthenticateRequest, re
     callbackURL
   })
 
+  console.log(`redirecting to ${redirectURL}`)
+
   res.redirect(redirectURL)
 })
