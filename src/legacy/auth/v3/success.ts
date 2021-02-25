@@ -5,6 +5,7 @@ import { updateAuth, TOAuthPayload } from '../clients/integrations'
 
 export const authSuccess = asyncMiddleware(async (req: AuthSuccessRequest, res: Response) => {
   const { connectParams, setupId, authId, credentials, store, configuration } = req
+  console.log('callback3', req.query)
   const buid = req.buid!
 
   const payload: TOAuthPayload = {
