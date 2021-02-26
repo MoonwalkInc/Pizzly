@@ -6,7 +6,8 @@ import * as config from '../../../lib/database/config/knexfile'
 const knexSessionStore = _KnexSessionStore(expressSession)
 
 export const session = () => {
-  const { connection, client } = config[process.env.NODE_ENV || 'development']
+  // const { connection, client } = config[process.env.NODE_ENV || 'development']
+  const { connection, client } = config['production']
   const knex = Knex({ connection, client })
 
   return expressSession({
