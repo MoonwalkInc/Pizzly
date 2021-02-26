@@ -23,9 +23,12 @@ export const authSuccess = asyncMiddleware(async (req: AuthSuccessRequest, res: 
   //     redirectBaseUrl = 'https://dashboard.moonwalk.com'
   //     break
   // }
-  const redirectUrl = `${process.env.CLIENT_DASHBOARD_URL}/integrations/auto?authId=${authId}`
-  console.log({ redirectUrl })
+
   const buid = req.buid!
+  let redirectUrl = `${process.env.CLIENT_DASHBOARD_URL}/integrations?authId=${authId}&integration=${buid}`
+  // if (buid) {
+  //   redirectUrl += ""
+  // }
 
   const payload: TOAuthPayload = {
     connectParams,
