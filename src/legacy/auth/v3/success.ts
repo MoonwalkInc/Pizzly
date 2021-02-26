@@ -10,12 +10,16 @@ export const authSuccess = asyncMiddleware(async (req: AuthSuccessRequest, res: 
   switch (req.query.env) {
     case 'local':
       redirectBaseUrl = 'http://localhost:3400'
+      break
     case 'develop':
       redirectBaseUrl = 'https://dashboard-dev.moonwalk.com'
+      break
     case 'demo':
       redirectBaseUrl = 'https://dashboard-demo.moonwalk.com'
+      break
     default:
       redirectBaseUrl = 'https://dashboard.moonwalk.com'
+      break
   }
   const redirectUrl = redirectBaseUrl + '/integrations/auto'
   const buid = req.buid!
@@ -51,8 +55,10 @@ export const authSuccess = asyncMiddleware(async (req: AuthSuccessRequest, res: 
 
   await updateAuth({ ...params, store })
 
-  res.header('Content-Type', 'text/html')
-  res.render('auth/callback', { authId, error: '', error_description: '', integrationUuid: buid })
+  // tg removed
+  // res.header('Content-Type', 'text/html')
+  // res.render('auth/callback', { authId, error: '', error_description: '', integrationUuid: buid })
   console.log({ redirectUrl })
   console.log({ authId, error: '', error_description: '', integrationUuid: buid })
+  res.redirect(redirectUrl)
 })
