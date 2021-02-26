@@ -5,8 +5,8 @@ import { updateAuth, TOAuthPayload } from '../clients/integrations'
 
 export const authSuccess = asyncMiddleware(async (req: AuthSuccessRequest, res: Response) => {
   const { connectParams, setupId, authId, credentials, store, configuration } = req
-  console.log({ req: JSON.stringify(req) })
-  // console.log('callback3', req.query)
+  // console.log({ req: JSON.stringify(req) })
+  console.log('callback3', req.query)
   // let redirectBaseUrl = ''
   // switch (req.query.env) {
   //   case 'local':
@@ -60,7 +60,7 @@ export const authSuccess = asyncMiddleware(async (req: AuthSuccessRequest, res: 
 
   // tg removed
   if (process.env.ALLOW_LOCAL_REDIRECT === 'true') {
-    const localRedirectUrl = `http://localhost:3400/integrations/auto?authId=${authId}`
+    // const localRedirectUrl = `http://localhost:3400/integrations/auto?authId=${authId}`
     res.header('Content-Type', 'text/html')
     res.render('auth/callback', {
       authId,
