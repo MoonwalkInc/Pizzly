@@ -21,7 +21,7 @@ export const authSuccess = asyncMiddleware(async (req: AuthSuccessRequest, res: 
       redirectBaseUrl = 'https://dashboard.moonwalk.com'
       break
   }
-  const redirectUrl = redirectBaseUrl + '/integrations/auto'
+  const redirectUrl = `${redirectBaseUrl}/integrations/auto?authId=${authId}`
   const buid = req.buid!
 
   const payload: TOAuthPayload = {
