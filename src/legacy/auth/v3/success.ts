@@ -25,7 +25,7 @@ export const authSuccess = asyncMiddleware(async (req: AuthSuccessRequest, res: 
   // }
 
   const buid = req.buid!
-  let redirectUrl = `${process.env.CLIENT_DASHBOARD_URL}/integrations?authId=${authId}&integration=${buid}`
+  let redirectUrl = `${process.env.CLIENT_DASHBOARD_URL}/integrations?authId=${authId}&integrationSuccessful=${buid}`
   // if (buid) {
   //   redirectUrl += ""
   // }
