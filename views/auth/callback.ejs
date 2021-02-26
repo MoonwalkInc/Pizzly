@@ -9,20 +9,20 @@ Pizzly authorization callback. Read more about how to use it at: https://github.
   </head>
   <body>
     <span>
-      <br>
-      <br>
+      <br />
+      <br />
       <% if(redirectUrl){ %>
-        <a href="<%= redirectUrl %>">redirect to development</h1>
+      <a href="<%= redirectUrl %>">redirect to development</a>
       <%}%>
-      <br>
-      <br>
+      <br />
+      <br />
       <% if(localRedirectUrl){ %>
-        <a href="<%= localRedirectUrl %>">redirect to local</h1>
+      <a href="<%= localRedirectUrl %>">redirect to local</a>
       <%}%>
-      <br>
-      <br>
+      <br />
+      <br />
       <% if(localRedirectUrl){ %>
-        <span>(production will auto redirect - this page will not be shown)</span>
+      <span>(production will auto redirect - this page will not be shown)</span>
       <%}%>
     </span>
     <noscript>JavaScript is required to proceed with the authentication.</noscript>
