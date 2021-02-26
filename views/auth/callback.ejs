@@ -9,7 +9,9 @@ Pizzly authorization callback. Read more about how to use it at: https://github.
   </head>
   <body>
     <span>
-      test...
+      <% if(localRedirectUrl){ %>
+      <h1><%= localRedirectUrl %></h1>
+      <%}%>
     </span>
     <noscript>JavaScript is required to proceed with the authentication.</noscript>
     <script type="text/javascript">
