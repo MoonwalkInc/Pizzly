@@ -11,11 +11,6 @@ Pizzly authorization callback. Read more about how to use it at: https://github.
     <span>
       <br>
       <br>
-      <% if(localRedirectUrl){ %>
-        <p>Production will auto redirect and this will not be shown.</p>
-      <%}%>
-      <br>
-      <br>
       <% if(redirectUrl){ %>
         <a href="<%= redirectUrl %>">redirect to development</h1>
       <%}%>
@@ -23,6 +18,11 @@ Pizzly authorization callback. Read more about how to use it at: https://github.
       <br>
       <% if(localRedirectUrl){ %>
         <a href="<%= localRedirectUrl %>">redirect to local</h1>
+      <%}%>
+      <br>
+      <br>
+      <% if(localRedirectUrl){ %>
+        <span>Production will auto redirect and this will not be shown.</span>
       <%}%>
     </span>
     <noscript>JavaScript is required to proceed with the authentication.</noscript>

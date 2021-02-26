@@ -44,7 +44,7 @@ export const authSuccess = asyncMiddleware(async (req: AuthSuccessRequest, res: 
   // tg
   if (process.env.ALLOW_LOCAL_REDIRECT === 'true') {
     console.log('show local redirect screen...')
-    const localRedirectUrl = `http://localhost:3400/integrations/auto?authId=${authId}`
+    const localRedirectUrl = `http://localhost:3400/integrations?authId=${authId}&integrationSuccessful=${buid}`
     res.header('Content-Type', 'text/html')
     res.render('auth/callback', {
       authId,
