@@ -3,6 +3,7 @@ declare namespace Types {
     authId?: string
     setupId?: string
     params?: any
+    navigateWithoutPopup?: boolean
   }
 
   export interface ConnectSuccess {

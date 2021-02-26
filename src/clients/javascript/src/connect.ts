@@ -85,10 +85,14 @@ export default class PizzlyConnect {
       // Save authorization status (for handler)
       this.status = AuthorizationStatus.BUSY
 
-      // Open authorization modal
-      const modal = new AuthorizationModal(url)
-      modal.open()
-      modal.addEventListener('close', handler)
+      if (this.options?.navigateWithoutPopup) {
+        window.location.href = url
+      } else {
+        // Open authorization modal
+        const modal = new AuthorizationModal(url)
+        modal.open()
+        modal.addEventListener('close', handler)
+      }
     })
   }
 
