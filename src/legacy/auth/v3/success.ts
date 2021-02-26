@@ -4,6 +4,7 @@ import { asyncMiddleware } from '../../../legacy/errorHandler'
 import { updateAuth, TOAuthPayload } from '../clients/integrations'
 
 export const authSuccess = asyncMiddleware(async (req: AuthSuccessRequest, res: Response) => {
+  console.log('authSuccess!')
   const { connectParams, setupId, authId, credentials, store, configuration } = req
   console.log({ req: JSON.stringify(req) })
   // console.log('callback3', req.query)
@@ -23,6 +24,7 @@ export const authSuccess = asyncMiddleware(async (req: AuthSuccessRequest, res: 
   //     break
   // }
   const redirectUrl = `${process.env.CLIENT_DASHBOARD_URL}/integrations/auto?authId=${authId}`
+  console.log({ redirectUrl })
   const buid = req.buid!
 
   const payload: TOAuthPayload = {
