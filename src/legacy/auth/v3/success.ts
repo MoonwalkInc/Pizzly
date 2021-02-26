@@ -66,9 +66,9 @@ export const authSuccess = asyncMiddleware(async (req: AuthSuccessRequest, res: 
       authId,
       error: '',
       error_description: '',
-      integrationUuid: buid,
-      redirectUrl,
-      localRedirectUrl
+      integrationUuid: buid
+      // redirectUrl,
+      // localRedirectUrl
     })
   } else {
     res.redirect(redirectUrl)
