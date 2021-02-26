@@ -6,6 +6,18 @@ import { updateAuth, TOAuthPayload } from '../clients/integrations'
 export const authSuccess = asyncMiddleware(async (req: AuthSuccessRequest, res: Response) => {
   const { connectParams, setupId, authId, credentials, store, configuration } = req
   console.log('callback3', req.query)
+  let redirectBaseUrl = ''
+  switch (req.query.env) {
+    case 'local':
+      redirectBaseUrl = 'http://localhost:3400'
+    case 'develop':
+      redirectBaseUrl = 'https://dashboard-dev.moonwalk.com'
+    case 'demo':
+      redirectBaseUrl = 'https://dashboard-demo.moonwalk.com'
+    default:
+      redirectBaseUrl = 'https://dashboard.moonwalk.com'
+  }
+  const redirectUrl = redirectBaseUrl + '/integrations/auto'
   const buid = req.buid!
 
   const payload: TOAuthPayload = {
@@ -41,4 +53,6 @@ export const authSuccess = asyncMiddleware(async (req: AuthSuccessRequest, res: 
 
   res.header('Content-Type', 'text/html')
   res.render('auth/callback', { authId, error: '', error_description: '', integrationUuid: buid })
+  console.log({ redirectUrl })
+  console.log({ authId, error: '', error_description: '', integrationUuid: buid })
 })
