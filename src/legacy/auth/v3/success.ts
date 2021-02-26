@@ -4,9 +4,8 @@ import { asyncMiddleware } from '../../../legacy/errorHandler'
 import { updateAuth, TOAuthPayload } from '../clients/integrations'
 
 export const authSuccess = asyncMiddleware(async (req: AuthSuccessRequest, res: Response) => {
-  console.log('authSuccess!')
   const { connectParams, setupId, authId, credentials, store, configuration } = req
-  console.log({ connectParams, setupId, authId, credentials, store, configuration })
+  console.log({ req: JSON.stringify(req) })
   // console.log('callback3', req.query)
   // let redirectBaseUrl = ''
   // switch (req.query.env) {
@@ -23,12 +22,8 @@ export const authSuccess = asyncMiddleware(async (req: AuthSuccessRequest, res: 
   //     redirectBaseUrl = 'https://dashboard.moonwalk.com'
   //     break
   // }
-
+  const redirectUrl = `${process.env.CLIENT_DASHBOARD_URL}/integrations/auto?authId=${authId}`
   const buid = req.buid!
-  let redirectUrl = `${process.env.CLIENT_DASHBOARD_URL}/integrations?authId=${authId}&integration=${buid}`
-  // if (buid) {
-  //   redirectUrl += ""
-  // }
 
   const payload: TOAuthPayload = {
     connectParams,
