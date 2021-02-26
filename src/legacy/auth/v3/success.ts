@@ -5,23 +5,24 @@ import { updateAuth, TOAuthPayload } from '../clients/integrations'
 
 export const authSuccess = asyncMiddleware(async (req: AuthSuccessRequest, res: Response) => {
   const { connectParams, setupId, authId, credentials, store, configuration } = req
-  console.log('callback3', req.query)
-  let redirectBaseUrl = ''
-  switch (req.query.env) {
-    case 'local':
-      redirectBaseUrl = 'http://localhost:3400'
-      break
-    case 'develop':
-      redirectBaseUrl = 'https://dashboard-dev.moonwalk.com'
-      break
-    case 'demo':
-      redirectBaseUrl = 'https://dashboard-demo.moonwalk.com'
-      break
-    default:
-      redirectBaseUrl = 'https://dashboard.moonwalk.com'
-      break
-  }
-  const redirectUrl = `${redirectBaseUrl}/integrations/auto?authId=${authId}`
+  console.log({ req: JSON.stringify(req) })
+  // console.log('callback3', req.query)
+  // let redirectBaseUrl = ''
+  // switch (req.query.env) {
+  //   case 'local':
+  //     redirectBaseUrl = 'http://localhost:3400'
+  //     break
+  //   case 'develop':
+  //     redirectBaseUrl = 'https://dashboard-dev.moonwalk.com'
+  //     break
+  //   case 'demo':
+  //     redirectBaseUrl = 'https://dashboard-demo.moonwalk.com'
+  //     break
+  //   default:
+  //     redirectBaseUrl = 'https://dashboard.moonwalk.com'
+  //     break
+  // }
+  const redirectUrl = `${process.env.CLIENT_DASHBOARD_URL}/integrations/auto?authId=${authId}`
   const buid = req.buid!
 
   const payload: TOAuthPayload = {
