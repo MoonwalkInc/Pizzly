@@ -11,7 +11,8 @@ export const session = () => {
 
   return expressSession({
     secret: process.env.COOKIE_SECRET || 'cookie-secret',
-    cookie: { secure: 'auto' },
+    // cookie: { secure: 'auto' }, // tg changed
+    cookie: { secure: true, sameSite: 'none' },
     resave: false,
     saveUninitialized: true,
     store: new knexSessionStore({ knex })
