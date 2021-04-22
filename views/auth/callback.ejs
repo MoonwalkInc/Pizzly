@@ -11,17 +11,15 @@ Pizzly authorization callback. Read more about how to use it at: https://github.
     <span>
       <br />
       <br />
-      <% if(redirectUrl){ %>
+      <% if(locals.redirectUrl && redirectUrl){ %>
       <a href="<%= redirectUrl %>">redirect to development</a>
       <%}%>
       <br />
       <br />
-      <% if(localRedirectUrl){ %>
+      <% if(locals.localRedirectUrl && localRedirectUrl){ %>
       <a href="<%= localRedirectUrl %>">redirect to local</a>
-      <%}%>
       <br />
       <br />
-      <% if(localRedirectUrl){ %>
       <span>(production will auto redirect - this page will not be shown)</span>
       <%}%>
     </span>
