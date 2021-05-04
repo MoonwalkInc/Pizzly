@@ -29,10 +29,10 @@ export const incomingRequestHandler = async (req, res, next) => {
   if (!authId) {
     return next(new PizzlyError('missing_auth_id'))
   }
-  console.log('1')
-  console.log('req', req)
-  console.log('req.headers', req.body)
-  console.log('req.body', req.body)
+  // console.log('1')
+  // console.log('req', req)
+  // console.log('req.headers', req.body)
+  // console.log('req.body', req.body)
   // Retrieve integration & authentication details
   const integration = await integrations.get(integrationName)
   if (!integration) {
