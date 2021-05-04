@@ -89,6 +89,7 @@ const strategyOptions = (req: TAuthenticateRequest) => {
     authorizationParams,
     signatureMethod
   } = req.integrationConfig
+  console.log('strategyOptions', JSON.stringify({ req }))
   return {
     consumerKey,
     consumerSecret,
