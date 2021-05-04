@@ -43,25 +43,25 @@ export const authSuccess = asyncMiddleware(async (req: AuthSuccessRequest, res: 
   console.log({ authId, error: '', error_description: '', integrationUuid: buid })
 
   // tg
-  // TODO check if user wallet
-  if (process.env.ALLOW_LOCAL_REDIRECT === 'true') {
-    console.log('show local redirect screen...')
-    const localRedirectUrl = `http://localhost:3400/integrations?authId=${authId}&integrationSuccessful=${buid}`
-    res.header('Content-Type', 'text/html')
-    res.render('auth/callback', {
-      authId,
-      error: '',
-      error_description: '',
-      integrationUuid: buid,
-      redirectUrl,
-      localRedirectUrl
-    })
-  } else {
-    console.log('redirecting...')
-    res.redirect(redirectUrl)
-  }
-  // else if (isUserWallet) {
+  // if (process.env.ALLOW_LOCAL_REDIRECT === 'true') {
+  //   console.log('show local redirect screen...')
+  //   const localRedirectUrl = `http://localhost:3400/integrations?authId=${authId}&integrationSuccessful=${buid}`
   //   res.header('Content-Type', 'text/html')
-  //   res.render('auth/callback', { authId, error: '', error_description: '', integrationUuid: buid })
+  //   res.render('auth/callback', {
+  //     authId,
+  //     error: '',
+  //     error_description: '',
+  //     integrationUuid: buid,
+  //     redirectUrl,
+  //     localRedirectUrl
+  //   })
+  // } else {
+  //   console.log('redirecting...')
+  //   res.redirect(redirectUrl)
+  // }
+  // TODO check if user wallet
+  // else if (isUserWallet) {
+  res.header('Content-Type', 'text/html')
+  res.render('auth/callback', { authId, error: '', error_description: '', integrationUuid: buid })
   // }
 })
