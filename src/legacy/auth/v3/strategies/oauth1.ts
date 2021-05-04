@@ -79,7 +79,7 @@ class Strategy extends OAuth1Strategy {
 
 const strategyOptions = (req: TAuthenticateRequest) => {
   const callbackURL = process.env.AUTH_CALLBACK_URL || `${req.protocol}://${req.get('host')}/auth/callback`
-  console.log({ callbackURL12: callbackURL })
+  console.log({ callbackURL12: callbackURL, req })
   const { consumerKey, consumerSecret } = req.setupDetails.credentials
   const {
     requestTokenURL,
@@ -89,7 +89,7 @@ const strategyOptions = (req: TAuthenticateRequest) => {
     authorizationParams,
     signatureMethod
   } = req.integrationConfig
-  console.log('strategyOptions', JSON.stringify({ req }))
+  // console.log('strategyOptions', JSON.stringify({ req }))
   return {
     consumerKey,
     consumerSecret,
