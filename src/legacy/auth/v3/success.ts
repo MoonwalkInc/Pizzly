@@ -5,6 +5,7 @@ import { updateAuth, TOAuthPayload } from '../clients/integrations'
 
 export const authSuccess = asyncMiddleware(async (req: AuthSuccessRequest, res: Response) => {
   const { connectParams, setupId, authId, credentials, store, configuration } = req
+  console.log('check auth success params', JSON.stringify({ req }))
   const buid = req.buid!
   const redirectUrl = `${process.env.CLIENT_DASHBOARD_URL}/integrations?authId=${authId}&integrationSuccessful=${buid}`
 
